@@ -1,0 +1,68 @@
+.btn-add-phone{
+	float: right;
+	
+}
+
+body {
+   font-family: 'Lato';
+
+}
+
+.fa-btn {
+    margin-right: 6px;
+}
+
+.navbar{
+	background-color: #607D8B;
+	box-shadow: 1px 1px 2px #888888;
+}
+
+.forgot-pass-btn{
+	float: right;
+}
+
+
+#logo{
+	text-shadow: rgb(67, 88, 97) 0px 0px,
+	 rgb(68, 89, 98) 1px 1px, rgb(69, 90, 100) 2px 2px,
+	  rgb(70, 91, 101) 3px 3px, rgb(70, 92, 102) 4px 4px,
+	   rgb(71, 93, 103) 5px 5px, rgb(72, 94, 104) 6px 6px,
+	    rgb(73, 95, 106) 7px 7px, rgb(74, 96, 107) 8px 8px,
+	     rgb(75, 97, 108) 9px 9px, rgb(75, 98, 109) 10px 10px,
+	      rgb(76, 99, 110) 11px 11px, rgb(77, 100, 112) 12px 12px,
+	       rgb(78, 101, 113) 13px 13px, rgb(79, 103, 114) 14px 14px,
+	        rgb(80, 104, 115) 15px 15px, rgb(80, 105, 116) 16px 16px,
+	         rgb(81, 106, 118) 17px 17px, rgb(82, 107, 119) 18px 18px, 
+	         rgb(83, 108, 120) 19px 19px, rgb(84, 109, 121) 20px 20px, 
+	         rgb(84, 110, 122) 21px 21px, rgb(85, 111, 124) 22px 22px, 
+	         rgb(86, 112, 125) 23px 23px, rgb(87, 113, 126) 24px 24px, 
+	         rgb(88, 114, 127) 25px 25px, rgb(89, 115, 128) 26px 26px,
+	          rgb(89, 116, 129) 27px 27px, rgb(90, 118, 131) 28px 28px, 
+	          rgb(91, 119, 132) 29px 29px, rgb(92, 120, 133) 30px 30px,
+	           rgb(93, 121, 134) 31px 31px, rgb(94, 122, 135) 32px 32px,
+	            rgb(94, 123, 137) 33px 33px, rgb(95, 124, 138) 34px 34px;
+	            color: rgb(255, 255, 255);
+	            
+	            border-radius: 0%;
+	            text-align: center;background-color: rgb(96, 125, 139);
+}
+
+
+.search-box{
+	float:right;
+}
+
+
+.programista-logo{
+	width:200px;
+}
+
+.container-logo-programista{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchbar{
+	left:38%;
+}
