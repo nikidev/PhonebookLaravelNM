@@ -38,3 +38,18 @@ Route::put('phone/update/{id}','PhoneController@phoneUpdate');
 
 
 Route::get('users', 'UserController@viewUsersList');
+Route::get('user/delete/{id}','UserController@deleteUser');
+Route::get('user/edit/{id}','UserController@viewEditUser');
+Route::put('user/update/{id}','UserController@userUpdate');
+Route::get('user/create','UserController@viewCreateUser');
+Route::post('user/store','UserController@userStore');
+
+Route::get('profile/edit/{id}','ProfileController@viewProfileEdit');
+Route::put('profile/update/{id}','ProfileController@profileUpdate');
+
+Route::get('groups','GroupController@viewGroupsList');
+Route::get('group/create','GroupController@viewCreateGroup');
+Route::post('group/store','GroupController@groupStore');
+Route::get('group/delete/{id}','GroupController@deleteGroup');
+Route::get('group/edit/{id}','GroupController@viewEditGroup');
+Route::put('group/update/{id}','GroupController@groupUpdate');

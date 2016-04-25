@@ -16,6 +16,8 @@
 
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
 
+     
+
      <link href="{{ asset('/css/app-style.css') }}" rel="stylesheet">
      <link href="{{ asset('/css/mdb.css') }}" rel="stylesheet">
      <link href="{{ asset('/css/mdb.min.css') }}" rel="stylesheet">
@@ -53,6 +55,9 @@
                         <li><a href="{{ url('/users') }}">Users</a></li>
                     @endif
 
+                    @if(!Auth::guest())
+                        <li><a href="{{ url('/groups') }}">Groups</a></li>
+                    @endif
                 </ul>
 
                 
@@ -70,7 +75,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{--url('/logout')--}}"><i class="fa fa-user"></i>My Profile</a></li>
+                                <li><a href="{{ url('profile/edit/'.Auth::user()->id) }}"><i class="fa fa-user"></i>My Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -87,8 +92,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="http://mdbootstrap.com/mdbcdn/mdb.min.js"></script>
     
     <script type="text/javascript" src="{{ asset('js/searchbar.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/deleteModal.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/popup.js') }}"></script>
+    
+
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

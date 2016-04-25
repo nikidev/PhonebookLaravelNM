@@ -24,6 +24,18 @@
                 </div>
             </div>
 
+
+
+             <div class="form-group">
+                <label for="group" class="col-sm-3 control-label">Choose a group:</label>
+
+                <div class="col-sm-6">
+                    @foreach(Auth::user()->group as $group)
+                        <input type="checkbox" name="group[]" id="group" value="{{ $group->id }}" checked>{{ $group->name }}
+                    @endforeach
+                </div>
+            </div>
+
            
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-4">

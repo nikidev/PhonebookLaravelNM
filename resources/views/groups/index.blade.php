@@ -5,7 +5,7 @@
  		 <div class="row">
 			<div class="col-md-10 col-md-offset-1">
 
-			<a href="{{ url('user/create') }}" class="btn btn-primary btn-add-phone"><span class="glyphicon glyphicon-plus"></span>Add new user
+			<a href="{{ url('group/create') }}" class="btn btn-primary btn-add-phone"><span class="glyphicon glyphicon-plus"></span>Add new group
                 </a>
 
 				 <table class="table table-hover table-responsive" id="tblData">
@@ -16,16 +16,16 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                        @foreach ($users as $user)
+	                        @foreach (Auth::user()->group as $group)
 	                            <tr>
-	                                <td>{{ $user->name }}</td>
+	                                <td>{{ $group->name }}</td>
 	                                
 	                                <td>
-	                                    <a href="{{ url('user/edit/'. $user->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Edit
+	                                    <a href="{{ url('group/edit/'. $group->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Edit
 	                                    </a>
 	                                </td>
 	                                <td>
-	                                    <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{ url('user/delete/'. $user->id) }}"><span class="fa fa-trash-o"></span>Delete</a>
+	                                    <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{ url('group/delete/'. $group->id) }}"><span class="fa fa-trash-o"></span>Delete</a>
 	                                </td>
 	                            </tr>
 	                        @endforeach
@@ -41,10 +41,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Delete User</h4>
+        <h4 class="modal-title" id="myModalLabel">Delete group</h4>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to delete the selected user ?</p>
+        <p>Are you sure you want to delete the selected group ?</p>
       </div>
       <div class="modal-footer">
           <form method="get" id="delete-form">

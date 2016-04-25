@@ -38,6 +38,18 @@ class PhoneController extends Controller
 
 		]);
 
+		$ids = Input::get('group');
+
+		//var_dump($ids);
+		//die;
+
+		foreach ($ids as $value) {
+			$phone->group()->attach(array(
+
+	    		'group_id' => (int)$value
+
+	    	));
+		}
 
 		 return redirect('/home');
 	}
@@ -55,6 +67,21 @@ class PhoneController extends Controller
 	public function phoneUpdate($id)
 	{
 
+		$phone = Phone::find($id);
+
+		$ids = Input::get('group');
+
+		//var_dump($ids);
+		//die;
+
+		foreach ($ids as $value) {
+			$phone->group()->attach(array(
+
+	    		'group_id' => (int)$value
+
+	    	));
+		}
+
 		
 		/*$phone = Auth::user()->phone()->update([
 
@@ -69,7 +96,8 @@ class PhoneController extends Controller
 				'phone'=> Input::get('phone'),
 
 			]);
-		
+
+				
 		 return redirect('/home');
 	}
 
@@ -79,7 +107,7 @@ class PhoneController extends Controller
 	{
 		$currentPhone = Phone::findOrFail($id);
 		$this->authorize('deletePhone',$currentPhone);
-
+		$currentPhone->group()->detach();
 		$currentPhone->delete();
 
 		return redirect()->back();

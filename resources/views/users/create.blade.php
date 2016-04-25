@@ -1,13 +1,9 @@
 @extends('layouts.app')
 
+
 @section('content')
 
-    
- 
- 
-   
-        
-        <form action="{{ url('phone/store') }}" method="POST" class="form-horizontal">
+	 <form action="{{ url('user/store') }}" method="POST" class="form-horizontal">
             {!! csrf_field() !!}
 
             <div class="form-group">
@@ -20,37 +16,33 @@
             </div>
 
              <div class="form-group">
-                <label for="phone" class="col-sm-3 control-label">Phone</label>
+                <label for="email" class="col-sm-3 control-label">Email</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="phone" id="phone" class="form-control" required>
+                    <input type="email" name="email" id="email" class="form-control" required>
                 </div>
             </div>
 
+            
             <div class="form-group">
-                <label for="group" class="col-sm-3 control-label">Choose a group:</label>
+                <label for="password" class="col-sm-3 control-label">Password</label>
 
                 <div class="col-sm-6">
-                    @foreach(Auth::user()->group as $group)
-                        <input type="checkbox" name="group[]" id="{{ $group->id }}" value="{{ $group->id }}">{{ $group->name }}
-                    @endforeach
+                    <input type="password" name="password" id="password" class="form-control" required>
                 </div>
             </div>
-
            
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-4">
                     <button type="submit" class="btn btn-default">
-                        <i class="fa fa-plus"></i> Add Phone
+                        <i class="fa fa-plus"></i> Add User
                     </button>
 
-                     <a href="{{ url('/home') }}" class="btn btn-danger"><span class="fa fa-chevron-right"></span>Back
+                     <a href="{{ url('/users') }}" class="btn btn-danger"><span class="fa fa-chevron-right"></span>Back
                      </a>
                 </div>
             </div>
 
         </form>
-    
 
-@endsection
-	
+@endsection()

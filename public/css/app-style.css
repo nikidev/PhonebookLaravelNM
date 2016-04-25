@@ -66,3 +66,15 @@ body {
 #searchbar{
 	left:38%;
 }
+
+.btn-conf{
+	
+	float:right;
+}
+
+
+.search-icon{
+	float: right;
+    top: 25px;
+    position: relative;
+}
