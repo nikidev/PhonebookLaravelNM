@@ -31,11 +31,16 @@
 
                 <div class="col-sm-6">
                     @foreach(Auth::user()->group as $group)
-                        <input type="checkbox" name="group[]" id="group" value="{{ $group->id }}" checked>{{ $group->name }}
+                        @if(in_array($group->id, $selectedGroups))
+                             <input type="checkbox" name="group[]" id="group" value="{{ $group->id }}" checked>
+                        @else
+                            <input type="checkbox" name="group[]" id="group" value="{{ $group->id }}" >
+                        @endif
+                             {{ $group->name }}
                     @endforeach
                 </div>
             </div>
-
+            
            
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-4">
