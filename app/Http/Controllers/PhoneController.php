@@ -40,8 +40,6 @@ class PhoneController extends Controller
 
 		$ids = Input::get('group');
 
-	
-
 		foreach ($ids as $value) {
 			$phone->group()->attach(array(
 
@@ -60,9 +58,11 @@ class PhoneController extends Controller
         $this->authorize('viewEditPhone',$phone);
         $selectedGroups = [];
 
-        foreach ($phone->group()->getResults() as $key => $value) {
+        foreach ($phone->group()->getResults() as $key => $value) 
+        {
         	$selectedGroups[] = $value->id;
         }
+
 
    		return view('phone.edit', compact('phone', 'selectedGroups'));
 	}
@@ -72,6 +72,16 @@ class PhoneController extends Controller
 		$phone = Phone::find($id);
 		$ids = Input::get('group');
 
+		 $selectedGroups = [];
+
+        foreach ($phone->group()->getResults() as $key => $value) 
+        {
+        	$selectedGroups[] = $value->id;
+        }
+
+       $phone->group()->detach();
+
+       
 		foreach ($ids as $value) {
 			$phone->group()->attach(array(
 
@@ -79,6 +89,8 @@ class PhoneController extends Controller
 
 	    	));
 		}
+
+
 
 		$phone = Phone::where('id',$id)->update([
 				'name'=> Input::get('name'),
