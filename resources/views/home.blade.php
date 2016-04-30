@@ -19,6 +19,7 @@
             <table class="table table-hover table-responsive" id="tblData">
                 <thead>
                     <tr>
+                        <th>Photo</th>
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Groups</th>
@@ -28,6 +29,11 @@
                 <tbody>
                         @foreach (Auth::user()->phone as $phone)
                             <tr>
+                                <td>
+                                    <a href="{{ url($phone->photo->file_path) }}" id="phone-photo" data-lightbox="phone-photo">
+                                        <img src="{{ url($phone->photo->file_path) }}">
+                                    </a>
+                                </td>
                                 <td>{{ $phone->name }}</td>
                                 <td>{{ $phone->phone }}</td>
                                 <td>

@@ -53,3 +53,8 @@ Route::post('group/store','GroupController@groupStore');
 Route::get('group/delete/{id}','GroupController@deleteGroup');
 Route::get('group/edit/{id}','GroupController@viewEditGroup');
 Route::put('group/update/{id}','GroupController@groupUpdate');
+
+
+
+
+

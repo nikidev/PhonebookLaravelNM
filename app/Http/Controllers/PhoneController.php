@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Phone;
+use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,6 +39,20 @@ class PhoneController extends Controller
 
 		]);
 
+		$file = Input::file('photoFilename');
+		$filename = uniqid() . $file->getClientOriginalName();
+		$file->move('photos',$filename);
+
+		$phone->photo()->create([
+
+			'phone_id'=> $phone->id,
+			'filename'=> $filename,
+			'file_size'=> $file->getClientSize(),
+			'file_mime'=> $file->getClientMimeType(),
+			'file_path'=> 'photos/'. $filename,
+			
+		]);
+
 		$ids = Input::get('group');
 
 		foreach ($ids as $value) {
@@ -49,6 +64,7 @@ class PhoneController extends Controller
 		}
 
 		 return redirect('/home');
+		 
 	}
 
 	public function viewEditPhone($id)
@@ -108,6 +124,9 @@ class PhoneController extends Controller
 		$currentPhone = Phone::findOrFail($id);
 		$this->authorize('deletePhone',$currentPhone);
 		$currentPhone->group()->detach();
+		
+		unlink(public_path($currentPhone->photo->file_path));
+		$currentPhone->photo()->delete();
 		$currentPhone->delete();
 
 		return redirect()->back();

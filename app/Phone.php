@@ -19,4 +19,9 @@ class Phone extends Model
 	{
 		return $this->belongsToMany('App\Group','group_phone');
 	}
+
+	public function photo()
+	{
+		return $this->hasOne('App\Photo');
+	}
 }

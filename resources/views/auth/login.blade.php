@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="container-logo-programista">
-                <img src="{{ asset('/img/programista-logo.png') }}" class="programista-logo">
+                <img src="{{ asset('/images/programista-logo.png') }}" class="programista-logo">
              </div>
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>

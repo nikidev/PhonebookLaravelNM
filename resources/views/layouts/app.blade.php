@@ -16,11 +16,11 @@
 
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
 
-     
-
      <link href="{{ asset('/css/app-style.css') }}" rel="stylesheet">
      <link href="{{ asset('/css/mdb.css') }}" rel="stylesheet">
      <link href="{{ asset('/css/mdb.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/lightbox.css') }}"rel="stylesheet" >
+     <link href="{{ asset('css/lightbox.min.css') }}"rel="stylesheet" >
 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
@@ -100,8 +100,10 @@
     <script type="text/javascript" src="{{ asset('js/deleteModal.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/popup.js') }}"></script>
-    
 
+    <script type="text/javascript" src="{{ asset('js/input-photo.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ asset('js/lightbox.min.js') }}"></script>
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

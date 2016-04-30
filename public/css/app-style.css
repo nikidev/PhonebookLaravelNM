@@ -78,3 +78,71 @@ body {
     top: 25px;
     position: relative;
 }
+
+
+.image-upload
+{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 150px;
+    cursor: pointer;
+    
+}
+
+
+
+
+
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+
+.image-upload:hover span.text-content {
+  opacity: 1;
+}
+
+
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 150px;
+  left: -150px;
+  position: inherit;
+  top: 0;
+  width: 150px;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+
+
+
+#phone-photo img{
+	width:100px;
+  height: 80px;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 1px  #888888;
+}
+
