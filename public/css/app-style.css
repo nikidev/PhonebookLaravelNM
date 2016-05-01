@@ -53,15 +53,7 @@ body {
 }
 
 
-.programista-logo{
-	width:200px;
-}
 
-.container-logo-programista{
-	display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 #searchbar{
 	left:38%;
