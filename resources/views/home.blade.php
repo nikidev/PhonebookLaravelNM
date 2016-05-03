@@ -30,9 +30,15 @@
                         @foreach (Auth::user()->phone as $phone)
                             <tr>
                                 <td>
+                                @if(isset($phone->photo->file_path))
                                     <a href="{{ url($phone->photo->file_path) }}" id="phone-photo" data-lightbox="phone-photo">
                                         <img src="{{ url($phone->photo->file_path) }}">
                                     </a>
+                                @else
+                                   <a href="{{ asset('/images/default-photo.png') }}" id="phone-photo" data-lightbox="phone-photo">
+                                      <img  src="{{ asset('/images/default-photo.png') }}">
+                                  </a>
+                                @endif
                                 </td>
                                 <td>{{ $phone->name }}</td>
                                 <td>{{ $phone->phone }}</td>

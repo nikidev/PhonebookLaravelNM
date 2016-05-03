@@ -40,28 +40,39 @@ class PhoneController extends Controller
 		]);
 
 		$file = Input::file('photoFilename');
-		$filename = uniqid() . $file->getClientOriginalName();
-		$file->move('photos',$filename);
+		
 
-		$phone->photo()->create([
+		if(file_exists($file))
+		{
+			$filename = uniqid() . $file->getClientOriginalName();
+			$file->move('photos',$filename);
+		
 
-			'phone_id'=> $phone->id,
-			'filename'=> $filename,
-			'file_size'=> $file->getClientSize(),
-			'file_mime'=> $file->getClientMimeType(),
-			'file_path'=> 'photos/'. $filename,
-			
-		]);
+			$phone->photo()->create([
+
+				'phone_id'=> $phone->id,
+				'filename'=> $filename,
+				'file_size'=> $file->getClientSize(),
+				'file_mime'=> $file->getClientMimeType(),
+				'file_path'=> 'photos/'. $filename,
+				
+			]);
+
+		}
 
 		$ids = Input::get('group');
 
-		foreach ($ids as $value) {
-			$phone->group()->attach(array(
+		if(is_array($ids) || is_object($ids))
+		{
+			foreach ($ids as $value) {
+				$phone->group()->attach(array(
 
-	    		'group_id' => (int)$value
+		    		'group_id' => (int)$value
 
-	    	));
+		    	));
+			}
 		}
+		
 
 		 return redirect('/home');
 		 
@@ -88,25 +99,47 @@ class PhoneController extends Controller
 		$phone = Phone::find($id);
 		$ids = Input::get('group');
 
-		 $selectedGroups = [];
+       	$phone->group()->detach();
 
-        foreach ($phone->group()->getResults() as $key => $value) 
-        {
-        	$selectedGroups[] = $value->id;
-        }
+       if(is_array($ids) || is_object($ids))
+       {
+	       	foreach ($ids as $value) {
+				$phone->group()->attach(array(
 
-       $phone->group()->detach();
+		    		'group_id' => (int)$value
 
-       
-		foreach ($ids as $value) {
-			$phone->group()->attach(array(
-
-	    		'group_id' => (int)$value
-
-	    	));
+		    	));
+			}
+       }
+		
+		if(isset($phone->photo->file_path))
+		{
+		
+			unlink(public_path($phone->photo->file_path));
+			$phone->photo()->delete();
 		}
 
 
+		$file = Input::file('photoFilename');
+
+		if(file_exists($file))
+		{
+			$filename = uniqid() . $file->getClientOriginalName();
+			$file->move('photos',$filename);
+			
+
+			
+			$phone->photo()->create([
+
+				'phone_id'=> $phone->id,
+				'filename'=> $filename,
+				'file_size'=> $file->getClientSize(),
+				'file_mime'=> $file->getClientMimeType(),
+				'file_path'=> 'photos/'. $filename,
+				
+			]);
+		
+		}
 
 		$phone = Phone::where('id',$id)->update([
 				'name'=> Input::get('name'),
@@ -124,9 +157,14 @@ class PhoneController extends Controller
 		$currentPhone = Phone::findOrFail($id);
 		$this->authorize('deletePhone',$currentPhone);
 		$currentPhone->group()->detach();
+
+		if(isset($phone->photo->file_path))
+		{
 		
-		unlink(public_path($currentPhone->photo->file_path));
-		$currentPhone->photo()->delete();
+			unlink(public_path($currentPhone->photo->file_path));
+			$currentPhone->photo()->delete();
+		}
+
 		$currentPhone->delete();
 
 		return redirect()->back();

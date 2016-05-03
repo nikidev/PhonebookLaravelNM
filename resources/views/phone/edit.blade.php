@@ -7,21 +7,21 @@
     <div class="row">
         <div class="col-md-12 col-md-offset-0">
 
-            <form action="{{ url('phone/update/'. $phone->id) }}" method="POST" class="form-horizontal">
+            <form action="{{ url('phone/update/'. $phone->id) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
 
                 {{ method_field('PUT') }}
                 {!! csrf_field() !!}
 
                 <div class="image-upload">
                             <label for="file-input" class="col-sm-3 control-label image-upload">
-                            @if($phone->photo->file_path < 0)
-                                 <img src="{{ asset('/images/default-photo.png') }}">
-                            @else
+                            @if(isset($phone->photo->file_path))
                                  <img id="img" src="{{ url($phone->photo->file_path) }}">
+                            @else
+                                 <img id="img" src="{{ asset('/images/default-photo.png') }}">
                             @endif
                                  <span class="text-content"><span>Change photo</span></span>
                              </label>
-                         <input id="file-input" type="file">
+                         <input name="photoFilename" id="file-input" type="file">
                     </div>
 
                 <div class="form-group">
