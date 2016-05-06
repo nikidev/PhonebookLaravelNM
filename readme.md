@@ -1,6 +1,7 @@
 # Phonebook on Laravel !   :)
 
 ##Used technologies:
+  <b>Framework</b>
   -Laravel 5.2<br />
   -PHP 5 <br />
   -MySQL<br />
