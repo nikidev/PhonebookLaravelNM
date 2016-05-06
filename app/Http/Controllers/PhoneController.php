@@ -39,7 +39,7 @@ class PhoneController extends Controller
 
 		]);
 
-		$file = Input::file('photoFilename');
+		$file = Input::file('photoName');
 		
 
 		if(file_exists($file))
@@ -112,23 +112,20 @@ class PhoneController extends Controller
 			}
        }
 		
-		if(isset($phone->photo->file_path))
-		{
 		
-			unlink(public_path($phone->photo->file_path));
-			$phone->photo()->delete();
-		}
-
-
-		$file = Input::file('photoFilename');
+		$file = Input::file('photoName');
 
 		if(file_exists($file))
 		{
+			if(isset($phone->photo->file_path))
+			{
+				unlink(public_path($phone->photo->file_path));
+				$phone->photo()->delete();
+			}
+
 			$filename = uniqid() . $file->getClientOriginalName();
 			$file->move('photos',$filename);
-			
-
-			
+						
 			$phone->photo()->create([
 
 				'phone_id'=> $phone->id,
@@ -146,8 +143,11 @@ class PhoneController extends Controller
 				'phone'=> Input::get('phone'),
 
 			]);
+
+
 				
 		 return redirect('/home');
+
 	}
 
 	
@@ -158,7 +158,7 @@ class PhoneController extends Controller
 		$this->authorize('deletePhone',$currentPhone);
 		$currentPhone->group()->detach();
 
-		if(isset($phone->photo->file_path))
+		if(isset($currentPhone->photo->file_path))
 		{
 		
 			unlink(public_path($currentPhone->photo->file_path));

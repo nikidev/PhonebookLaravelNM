@@ -21,7 +21,7 @@
                             @endif
                                  <span class="text-content"><span>Change photo</span></span>
                              </label>
-                         <input name="photoFilename" id="file-input" type="file">
+                         <input name="photoName" id="file-input" type="file">
                     </div>
 
                 <div class="form-group">

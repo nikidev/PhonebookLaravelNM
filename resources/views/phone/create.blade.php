@@ -15,7 +15,7 @@
                                  <img  id="img" src="{{ asset('/images/default-photo.png') }}">
                                  <span class="text-content"><span>Add photo</span></span>
                              </label>  
-                         <input name="photoFilename" id="file-input" type="file">
+                         <input name="photoName" id="file-input" type="file">
                     </div>
 
                 <div class="form-group">
