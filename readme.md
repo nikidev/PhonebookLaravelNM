@@ -5,7 +5,7 @@
   -Laravel 5.2<br />
   <b> Back-End (Server-Side)</b><br />
   -PHP 5 <br />
-  -MySQL(+Eloquent ORM)<br />
+  -MySQL (+Eloquent ORM)<br />
   -Apache 2 <br />
   -PhpMyAdmin <br />
    <b>Front-End</b><br />
