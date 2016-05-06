@@ -1,12 +1,13 @@
 # Phonebook on Laravel !   :)
 
 ##Used technologies:
-  ###Laravel 5.2
-  ###PHP 5 
-  ###MySQL
-  ###HTML 5
-  ###JavaScript (jQuery)
-  ###CSS (MDB Bootstrap CSS Framework)
+  -Laravel 5.2<br />
+  -PHP 5 <br />
+  -MySQL<br />
+  -HTML 5<br />
+  -JavaScript (jQuery)<br />
+  -CSS (MDB Bootstrap CSS Framework)<br />
+  
   
 
   By Nikolay Mikov
