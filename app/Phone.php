@@ -24,4 +24,9 @@ class Phone extends Model
 	{
 		return $this->hasOne('App\Photo');
 	}
+
+	public function otherContact()
+	{
+		return $this->hasMany('App\OtherContact');
+	}
 }

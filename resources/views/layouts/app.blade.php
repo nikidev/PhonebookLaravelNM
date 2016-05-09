@@ -58,6 +58,10 @@
                     @if(!Auth::guest())
                         <li><a href="{{ url('/groups') }}">Groups</a></li>
                     @endif
+
+                    @if(!Auth::guest() && Auth::user()->isAdmin)
+                        <li><a href="{{ url('/services') }}">Services</a></li>
+                    @endif
                 </ul>
 
                 

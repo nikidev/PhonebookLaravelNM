@@ -55,6 +55,22 @@ Route::get('group/edit/{id}','GroupController@viewEditGroup');
 Route::put('group/update/{id}','GroupController@groupUpdate');
 
 
+Route::get('contacts/{phoneID}','OtherContactsController@viewContactsList');
+Route::get('contact/create','OtherContactsController@viewCreateContact');
+Route::post('contact/store','OtherContactsController@contactStore');
+Route::get('contact/delete/{id}','OtherContactsController@deleteContact');
+Route::get('contact/edit/{id}','OtherContactsController@viewEditContact');
+Route::put('contact/update/{id}','OtherContactsController@contactUpdate');
+
+
+
+Route::get('services','ServiceController@viewServicesList');
+Route::get('service/create','ServiceController@viewCreateService');
+Route::post('service/store','ServiceController@serviceStore');
+Route::get('service/delete/{id}','ServiceController@deleteService');
+Route::get('service/edit/{id}','ServiceController@viewEditService');
+Route::put('service/update/{id}','ServiceController@serviceUpdate');
+
 
 
 

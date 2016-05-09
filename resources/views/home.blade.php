@@ -23,6 +23,7 @@
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Groups</th>
+                        <th>Other contacts</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -48,16 +49,20 @@
                                   @endforeach
                                 </td>
                                 <td>
+                                  <a href="{{ url('contacts/'. $phone->id) }}" class="btn btn-info">
+                                  <span class="fa fa-phone"></span>
+                                  <span class="fa fa-facebook-official"></span>
+                                  <span class="fa fa-envelope"></span>
+                                  <span class="fa fa-skype"></span>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="{{ url('phone/edit/'. $phone->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Edit
                                     </a>
                                 </td>
                                 <td>
                                     <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{ url('phone/delete/'. $phone->id) }}"><span class="fa fa-trash-o"></span>Delete</a>
                                 </td>
-                               <!-- <td>
-                                  <a href="{{-- url('phone/edit/'. $phone->id) --}}" class="btn btn-info"><span class="glyphicon glyphicon-option-vertical"></span>Other phones
-                                    </a>
-                                </td>-->
                             </tr>
                         @endforeach
                 </tbody>
