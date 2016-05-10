@@ -13,4 +13,9 @@ class Service extends Model
 	{
 		return $this->belongsTo('App\User');
 	}
+
+	public function otherContact()
+	{
+		return $this->belongsTo('App\OtherContact');
+	}
 }

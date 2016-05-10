@@ -28,9 +28,10 @@ class OtherContactsController extends Controller
 		return view('otherContacts.create');
 	}
 
-	public function contactStore()
+	public function contactStore($id)
 	{
-
+		$phone = Phone::find($id);
+		
 	}
 
 	public function deleteContact()

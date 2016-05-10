@@ -15,7 +15,7 @@ class CreateOtherContactsTable extends Migration
         Schema::create('other_contacts', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('phone_id');
-                $table->string('icon');
+                $table->integer('service_id');
                 $table->string('contact');
                 $table->timestamps();
             });

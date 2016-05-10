@@ -12,4 +12,9 @@ class OtherContact extends Model
 	{
 		return $this->belongsTo('App\Phone');
 	}
+
+	public function service()
+	{
+		return $this->hasOne('App\Service');
+	}
 }
