@@ -50,10 +50,10 @@
                                 </td>
                                 <td>
                                   <a href="{{ url('contacts/'. $phone->id) }}" class="btn btn-info">
-                                  <span class="fa fa-phone"></span>
-                                  <span class="fa fa-facebook-official"></span>
-                                  <span class="fa fa-envelope"></span>
-                                  <span class="fa fa-skype"></span>
+                                        <span class="fa fa-phone"></span>
+                                        <span class="fa fa-facebook-official"></span>
+                                        <span class="fa fa-envelope"></span>
+                                        <span class="fa fa-skype"></span>
                                     </a>
                                 </td>
                                 <td>

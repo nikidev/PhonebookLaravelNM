@@ -165,6 +165,8 @@ class PhoneController extends Controller
 			$currentPhone->photo()->delete();
 		}
 
+		$currentPhone->otherContact()->delete();
+
 		$currentPhone->delete();
 
 		return redirect()->back();

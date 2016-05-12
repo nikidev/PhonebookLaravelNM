@@ -61,6 +61,7 @@ class UserController extends Controller
             'name'=> Input::get('name'),
             'email'=>Input::get('email'),
             'password'=>bcrypt(Input::get('password')),
+            'isAdmin'=>Input::get('isAdmin'),
 
         ]);
 

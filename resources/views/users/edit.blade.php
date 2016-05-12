@@ -16,6 +16,19 @@
                 </div>
             </div>
 
+             <div class="form-group">
+                    <label for="group" class="col-sm-3 control-label">Choose a role:</label>
+
+                    
+                        <div class="col-sm-6">
+                            @if(true)
+                              <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}" checked>isAdmin
+                            @else
+                                <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">isAdmin
+                            @endif
+                        </div>
+                    
+            </div>
 
            
             <div class="form-group">

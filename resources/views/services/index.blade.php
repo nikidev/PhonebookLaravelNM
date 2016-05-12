@@ -16,7 +16,7 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                        @foreach (Auth::user()->service as $service)
+	                        @foreach ($services as $service)
 	                            <tr>
 	                                <td>{{ $service->name }}</td>
 	                                

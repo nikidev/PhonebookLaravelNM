@@ -32,7 +32,7 @@ class ServiceController extends Controller
 
 	public function serviceStore()
 	{
-		$service = Auth::user()->service()->create([
+		$service = Service::create([
 
 			'user_id'=> Auth::user()->id,
 			'name'=> Input::get('name'),

@@ -56,10 +56,10 @@ Route::put('group/update/{id}','GroupController@groupUpdate');
 
 
 Route::get('contacts/{phoneID}','OtherContactsController@viewContactsList');
-Route::get('contact/create','OtherContactsController@viewCreateContact');
+Route::get('contact/create/{phoneID}','OtherContactsController@viewCreateContact');
 Route::post('contact/store','OtherContactsController@contactStore');
 Route::get('contact/delete/{id}','OtherContactsController@deleteContact');
-Route::get('contact/edit/{id}','OtherContactsController@viewEditContact');
+Route::get('contact/edit/{id}/{phoneID}','OtherContactsController@viewEditContact');
 Route::put('contact/update/{id}','OtherContactsController@contactUpdate');
 
 

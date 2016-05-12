@@ -3,17 +3,19 @@
 
 @section('content')
 
-	 <form action="{{ url('group/store') }}" method="POST" class="form-horizontal">
+	 <form action="{{ url('contact/store') }}" method="POST" class="form-horizontal">
             {!! csrf_field() !!}
 
             <div class="form-group">
                 <label for="service" class="col-sm-3 control-label">Service</label>
 
                 <div class="col-sm-2">
-                    <select class="form-control">
-                        @foreach(Auth::user()->service as $service)
+                    <select name="service" class="form-control">
+                  
+                        @foreach($services as $service)
                               <option value="{{ $service->id }}">{{ $service->name }}</option>
                         @endforeach
+                  
                     </select>
                 </div>
             </div>
@@ -25,6 +27,9 @@
                 </div>
             </div>
 
+           
+            <input type="hidden" name="phone_id" value="{{ $phone_id }}">
+            
                           
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-4">
@@ -32,7 +37,7 @@
                         <i class="fa fa-plus"></i> Add Contact
                     </button>
 
-                     <a href="{{-- url('contacts/'. $phone->id) --}}" class="btn btn-danger">
+                     <a href="{{ URL::previous() }}" class="btn btn-danger">
                      	<span class="fa fa-chevron-right"></span>Back
                      </a>
                 </div>

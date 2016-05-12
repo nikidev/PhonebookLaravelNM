@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Phone;
 use App\OtherContact;
+use Illuminate\Support\Facades\Input;
+use App\Service;
 
 class OtherContactsController extends Controller
 {
@@ -17,36 +19,62 @@ class OtherContactsController extends Controller
 
 	public function viewContactsList($id)
 	{
-		$phone = Phone::find($id);
-
+		$otherContacts = Phone::find($id)->otherContact;
+		
 		return view('otherContacts.index')
-			->with('otheContacts', OtherContact::all());
+			->with(['phone_id' => $id, 'otherContacts' => $otherContacts]);
 	}
 
-	public function viewCreateContact()
+	public function viewCreateContact($id)
 	{
-		return view('otherContacts.create');
+		return view('otherContacts.create')
+		->with(['phone_id' => $id])->with('services', Service::all());
 	}
 
-	public function contactStore($id)
+	public function contactStore()
 	{
-		$phone = Phone::find($id);
+		$phone_id = Input::get('phone_id');
+		$contact = OtherContact::create([
+
+				'phone_id' => $phone_id,
+				'service_id' => Input::get('service'),
+				'contact' =>Input::get('contact'),
+
+			]);
+		return redirect('/contacts/' . $phone_id);
+		
 		
 	}
 
-	public function deleteContact()
+	public function deleteContact($id)
 	{
-		
+		$otherContact = OtherContact::findOrfail($id);
+    	$otherContact->delete();	
+    	return redirect()->back();
 	}
 
-	public function viewEditContact()
+	public function viewEditContact($id, $phone_id)
 	{
+		$otherContact = OtherContact::find($id);
 		
+
+        return view('otherContacts.edit')
+            ->with('otherContact',$otherContact)
+            ->with(['phone_id' => $phone_id])
+            ->with('services', Service::all());
+            
 	}
 
-	public function contactUpdate()
+	public function contactUpdate($id)
 	{
-		
+		$phone_id = Input::get('phone_id');
+
+		$otherContact = OtherContact::where('id',$id)->update([
+				'service_id' => Input::get('service'),
+				'contact' =>Input::get('contact'),
+			]);
+
+		return redirect('/contacts/' . $phone_id);
 	}
 
 }

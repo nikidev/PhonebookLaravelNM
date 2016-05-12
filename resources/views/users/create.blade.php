@@ -31,6 +31,15 @@
                     <input type="password" name="password" id="password" class="form-control" required>
                 </div>
             </div>
+
+
+            <div class="form-group">
+                    <label for="group" class="col-sm-3 control-label">Choose a role:</label>
+
+                    <div class="col-sm-6">
+                        <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">isAdmin
+                    </div>
+            </div>
            
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-4">

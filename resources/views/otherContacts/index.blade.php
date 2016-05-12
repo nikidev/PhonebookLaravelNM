@@ -4,10 +4,10 @@
 	<div class="container">
  		 <div class="row">
 			<div class="col-md-10 col-md-offset-1">
-
-			<a href="{{ url('contact/create') }}" class="btn btn-primary btn-add-phone"><span class="glyphicon glyphicon-plus"></span>Add new contact
+			
+			<a href="{{ url('contact/create/'. $phone_id) }}" class="btn btn-primary btn-add-phone"><span class="glyphicon glyphicon-plus"></span>Add new contact
                 </a>
-
+         
                  <a href="{{ url('/home') }}" class="btn btn-danger"><span class="fa fa-chevron-right"></span>Back to phones
                          </a>
 
@@ -21,20 +21,23 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                        
+
+	                		
+	                     @foreach($otherContacts as $otherContact)
 	                            <tr>
-	                                <td>{{-- $user->name --}}</td>
-	                                <td></td>
-	                                
+	                            	
+	                                <td>{{--$otherContact->$service->name--}}</td>
+	                                <td>{{ $otherContact->contact }}</td>
+
 	                                <td>
-	                                    <a href="{{-- url('user/edit/'. $user->id) --}}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Edit
+	                                    <a href="{{ url('contact/edit/'. $otherContact->id .'/'.$phone_id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Edit
 	                                    </a>
 	                                </td>
 	                                <td>
-	                                    <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{-- url('user/delete/'. $user->id) --}}"><span class="fa fa-trash-o"></span>Delete</a>
+	                                    <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{ url('contact/delete/'. $otherContact->id) }}"><span class="fa fa-trash-o"></span>Delete</a>
 	                                </td>
 	                            </tr>
-	                        
+	                       @endforeach
 	                </tbody>
 	            </table>
 			</div> 
