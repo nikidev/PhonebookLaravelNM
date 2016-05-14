@@ -15,6 +15,6 @@ class OtherContact extends Model
 
 	public function service()
 	{
-		return $this->hasOne('App\Service');
+		return $this->belongsTo('App\Service');
 	}
 }

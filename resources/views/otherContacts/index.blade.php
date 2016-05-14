@@ -25,8 +25,9 @@
 	                		
 	                     @foreach($otherContacts as $otherContact)
 	                            <tr>
+	                            
+	                                <td>{{$otherContact->service->name}}</td>
 	                            	
-	                                <td>{{--$otherContact->$service->name--}}</td>
 	                                <td>{{ $otherContact->contact }}</td>
 
 	                                <td>

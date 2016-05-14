@@ -22,7 +22,9 @@ class OtherContactsController extends Controller
 		$otherContacts = Phone::find($id)->otherContact;
 		
 		return view('otherContacts.index')
-			->with(['phone_id' => $id, 'otherContacts' => $otherContacts]);
+			->with(['phone_id' => $id, 'otherContacts' => $otherContacts])
+			->with('services', Service::all());
+			
 	}
 
 	public function viewCreateContact($id)
