@@ -19,8 +19,10 @@ class OtherContactsController extends Controller
 
 	public function viewContactsList($id)
 	{
-		$otherContacts = Phone::find($id)->otherContact;
 		
+		
+		$otherContacts = Phone::find($id)->otherContact;
+		//$this->authorize('viewContactsList',$otherContacts);
 		return view('otherContacts.index')
 			->with(['phone_id' => $id, 'otherContacts' => $otherContacts])
 			->with('services', Service::all());
@@ -51,6 +53,7 @@ class OtherContactsController extends Controller
 	public function deleteContact($id)
 	{
 		$otherContact = OtherContact::findOrfail($id);
+		$this->authorize('deleteContact',$otherContact);
     	$otherContact->delete();	
     	return redirect()->back();
 	}
@@ -58,7 +61,8 @@ class OtherContactsController extends Controller
 	public function viewEditContact($id, $phone_id)
 	{
 		$otherContact = OtherContact::find($id);
-		
+
+		$this->authorize('viewEditContact',$otherContact);
 
         return view('otherContacts.edit')
             ->with('otherContact',$otherContact)

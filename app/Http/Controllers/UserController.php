@@ -36,7 +36,14 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('users.edit')
+        $selectedRole = [];
+
+        /*foreach ($user->getResults() as $key => $value) 
+        {
+            $selectedRole[] = $value->id;
+        }*/
+
+        return view('users.edit',compact('selectedRole'))
             ->with('user',$user);
     }
 
@@ -44,6 +51,7 @@ class UserController extends Controller
     {
         $user = User::where('id',$id)->update([
                 'name'=> Input::get('name'),
+                'isAdmin'=>Input::get('isAdmin'),
             ]);
         
          return redirect('/users');

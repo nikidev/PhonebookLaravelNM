@@ -21,7 +21,7 @@
 
                     
                         <div class="col-sm-6">
-                            @if(true)
+                            @if(in_array(Auth::user()->isAdmin, $selectedRole))
                               <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}" checked>isAdmin
                             @else
                                 <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">isAdmin

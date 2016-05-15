@@ -17,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Phone' => 'App\Policies\PhonePolicy',
         'App\User' => 'App\Policies\ProfilePolicy',
         'App\Group' => 'App\Policies\GroupPolicy',
+        'App\OtherContact' => 'App\Policies\OtherContactPolicy',
     ];
 
     /**

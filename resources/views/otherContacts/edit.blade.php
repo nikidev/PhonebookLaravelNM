@@ -12,6 +12,9 @@
 
                 <div class="col-sm-2">
                     <select name="service" class="form-control">
+                        
+                        <option value="{{ $otherContact->service_id }}">{{ $otherContact->service->name }}</option>
+                    
                         @foreach($services as $service)
                               <option value="{{ $service->id }}">{{ $service->name }}</option>
                         @endforeach
