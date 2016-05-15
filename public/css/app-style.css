@@ -138,3 +138,8 @@ span.text-content {
   box-shadow: 1px 1px 1px  #888888;
 }
 
+
+
+#tblPhones_filter{
+    display:none;
+}
