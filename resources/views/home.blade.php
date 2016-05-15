@@ -16,7 +16,7 @@
                 <a href="{{ url('phone/create') }}" class="btn btn-primary btn-add-phone"><span class="glyphicon glyphicon-plus"></span>Add new phone
                 </a>
 
-            <table class="table table-hover table-responsive" id="tblData">
+            <table class="table table-hover table-responsive" id="tblPhones">
                 <thead>
                     <tr>
                         <th>Photo</th>
@@ -25,6 +25,7 @@
                         <th>Groups</th>
                         <th>Other contacts</th>
                         <th>Actions</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

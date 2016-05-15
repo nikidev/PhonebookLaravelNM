@@ -15,6 +15,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet"  href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 
      <link href="{{ asset('/css/app-style.css') }}" rel="stylesheet">
      <link href="{{ asset('/css/mdb.css') }}" rel="stylesheet">
@@ -98,8 +99,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="http://mdbootstrap.com/mdbcdn/mdb.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript" src="{{ asset('js/DataTables.js') }}"></script>
     
-    <script type="text/javascript" src="{{ asset('js/searchbar.js') }}"></script>
+    {{--<script type="text/javascript" src="{{ asset('js/searchbar.js') }}"></script>--}}
 
     <script type="text/javascript" src="{{ asset('js/deleteModal.js') }}"></script>
 
@@ -108,6 +113,8 @@
     <script type="text/javascript" src="{{ asset('js/input-photo.js') }}"></script>
     
     <script type="text/javascript" src="{{ asset('js/lightbox.min.js') }}"></script>
+
+
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
