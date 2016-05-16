@@ -22,6 +22,8 @@
      <link href="{{ asset('/css/mdb.min.css') }}" rel="stylesheet">
      <link href="{{ asset('css/lightbox.css') }}"rel="stylesheet" >
      <link href="{{ asset('css/lightbox.min.css') }}"rel="stylesheet" >
+     <link href="{{ asset('css/bootstrap-switch.css') }}"rel="stylesheet" >
+
 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
@@ -113,6 +115,9 @@
     <script type="text/javascript" src="{{ asset('js/input-photo.js') }}"></script>
     
     <script type="text/javascript" src="{{ asset('js/lightbox.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/bootstrap-switch.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/switcher.js') }}"></script>
 
 
 

@@ -34,10 +34,10 @@
 
 
             <div class="form-group">
-                    <label for="group" class="col-sm-3 control-label">Choose a role:</label>
+                    <label for="group" class="col-sm-3 control-label">Choose admin role to be:</label>
 
                     <div class="col-sm-6">
-                        <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">isAdmin
+                        <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">
                     </div>
             </div>
            

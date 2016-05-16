@@ -1,0 +1,1 @@
+$("[name='isAdmin']").bootstrapSwitch();

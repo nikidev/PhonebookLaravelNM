@@ -20,12 +20,13 @@ class OtherContactsController extends Controller
 	public function viewContactsList($id)
 	{
 		
-		
+		$phone = Phone::find($id);
 		$otherContacts = Phone::find($id)->otherContact;
 		//$this->authorize('viewContactsList',$otherContacts);
 		return view('otherContacts.index')
 			->with(['phone_id' => $id, 'otherContacts' => $otherContacts])
-			->with('services', Service::all());
+			->with('services', Service::all())
+			->with('phone',$phone);
 			
 	}
 

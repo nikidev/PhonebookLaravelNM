@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\User;
 use Illuminate\Support\Facades\Input;
+use Auth;
 
 class UserController extends Controller
 {
@@ -38,11 +39,12 @@ class UserController extends Controller
 
         $selectedRole = [];
 
-        /*foreach ($user->getResults() as $key => $value) 
+        foreach ($user->get() as $key => $value) 
         {
             $selectedRole[] = $value->id;
-        }*/
+        }
 
+        
         return view('users.edit',compact('selectedRole'))
             ->with('user',$user);
     }

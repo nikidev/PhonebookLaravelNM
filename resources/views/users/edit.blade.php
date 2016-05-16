@@ -17,17 +17,14 @@
             </div>
 
              <div class="form-group">
-                    <label for="group" class="col-sm-3 control-label">Choose a role:</label>
-
-                    
-                        <div class="col-sm-6">
-                            @if(in_array(Auth::user()->isAdmin, $selectedRole))
-                              <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}" checked>isAdmin
-                            @else
-                                <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">isAdmin
-                            @endif
-                        </div>
-                    
+                <label for="role" class="col-sm-3 control-label">Switch admin role:</label>
+                <div class="col-sm-6">
+                    @if(in_array($user->isAdmin, $selectedRole))
+                      <input type="checkbox" name="isAdmin"  value="{{ $user->isAdmin }}" checked>
+                    @else
+                        <input type="checkbox" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">
+                    @endif
+                </div>
             </div>
 
            

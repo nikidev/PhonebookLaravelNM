@@ -4,6 +4,8 @@
 	<div class="container">
  		 <div class="row">
 			<div class="col-md-10 col-md-offset-1">
+
+			<h5>{{ $phone->name }}'s other contacts</h5>
 			
 			<a href="{{ url('contact/create/'. $phone_id) }}" class="btn btn-primary btn-add-phone"><span class="glyphicon glyphicon-plus"></span>Add new contact
                 </a>
