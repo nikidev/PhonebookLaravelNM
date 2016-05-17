@@ -11,4 +11,27 @@ $(document).ready(function(){
     $('#search').on('keyup',function(){
       table.search($(this).val()).draw() ;
 	});
+
+
+    $('#tblOtherContacts').DataTable({
+      
+      "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ 2,3 ] }
+       ],
+
+       "pageLength": 4,
+       "bFilter": false
+    });
+
+    $('#tblUsers').DataTable({
+      
+      "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ 1,2,3 ] }
+       ],
+
+       "pageLength": 4,
+       "bFilter": false
+    });
+
+
 });

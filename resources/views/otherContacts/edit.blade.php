@@ -14,7 +14,7 @@
                     <select name="service" class="form-control">
                         @foreach($services as $service)
                             @if($otherContact->service_id == $service->id)
-                                <option style="color:blue;" selected="true"  value="{{ $otherContact->service_id }}">{{ $otherContact->service->name }}</option>
+                                <option style="color:#00BCD4;" selected="true"  value="{{ $otherContact->service_id }}">{{ $otherContact->service->name }}</option>
                             @else
                                 <option value="{{ $service->id }}">{{ $service->name }}</option>
                             @endif

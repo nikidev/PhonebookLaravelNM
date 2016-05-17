@@ -14,12 +14,13 @@
                          </a>
 
 
-				 <table class="table table-hover table-responsive" id="tblData">
+				 <table class="table table-hover table-responsive" id="tblOtherContacts">
 	                <thead>
 	                    <tr>
 	                        <th>Service</th>
 	                        <th>Contact</th>
 	                        <th>Actions</th>
+	                        <th></th>
 	                    </tr>
 	                </thead>
 	                <tbody>

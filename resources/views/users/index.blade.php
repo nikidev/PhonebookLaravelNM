@@ -8,11 +8,13 @@
 			<a href="{{ url('user/create') }}" class="btn btn-primary btn-add-phone"><span class="glyphicon glyphicon-plus"></span>Add new user
                 </a>
 
-				 <table class="table table-hover table-responsive" id="tblData">
+				 <table class="table table-hover table-responsive" id="tblUsers">
 	                <thead>
 	                    <tr>
 	                        <th>Name</th>
+	                        <th>Administrator</th>
 	                        <th>Actions</th>
+	                        <th></th>
 	                    </tr>
 	                </thead>
 	                <tbody>
@@ -20,6 +22,14 @@
 	                            <tr>
 	                                <td>{{ $user->name }}</td>
 	                                
+	                                <td>
+	                                	@if(in_array($user->isAdmin, $selectedRole))
+                     					 <input type="checkbox" disabled="disabled" name="isAdmin"  value="{{ $user->isAdmin }}" checked>
+                    					@else
+                       					 <input type="checkbox" disabled="disabled" name="isAdmin"  value="{{ Auth::user()->isAdmin }}">
+                   						@endif
+	                                </td>
+
 	                                <td>
 	                                    <a href="{{ url('user/edit/'. $user->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Edit
 	                                    </a>

@@ -20,7 +20,16 @@ class UserController extends Controller
 
     public function viewUsersList()
     {
-    	return view('users.index')
+
+        $user = User::take(5);
+        $selectedRole = [];
+
+        foreach ($user->get() as $key => $value) 
+        {
+            $selectedRole[] = $value->id;
+        }
+
+    	return view('users.index',compact('selectedRole'))
 			->with('users', User::all());
     }
 
@@ -71,7 +80,7 @@ class UserController extends Controller
             'name'=> Input::get('name'),
             'email'=>Input::get('email'),
             'password'=>bcrypt(Input::get('password')),
-            'isAdmin'=>Input::get('isAdmin'),
+            'isAdmin'=>Input::get('isAdmin') || Input::get('0'),
 
         ]);
 
