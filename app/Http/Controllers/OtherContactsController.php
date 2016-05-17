@@ -21,7 +21,10 @@ class OtherContactsController extends Controller
 	{
 		
 		$phone = Phone::find($id);
+
 		$otherContacts = Phone::find($id)->otherContact;
+
+		//dd($phone);
 		//$this->authorize('viewContactsList',$otherContacts);
 		return view('otherContacts.index')
 			->with(['phone_id' => $id, 'otherContacts' => $otherContacts])
@@ -54,7 +57,7 @@ class OtherContactsController extends Controller
 	public function deleteContact($id)
 	{
 		$otherContact = OtherContact::findOrfail($id);
-		$this->authorize('deleteContact',$otherContact);
+		//$this->authorize('deleteContact',$otherContact);
     	$otherContact->delete();	
     	return redirect()->back();
 	}
@@ -63,7 +66,7 @@ class OtherContactsController extends Controller
 	{
 		$otherContact = OtherContact::find($id);
 
-		$this->authorize('viewEditContact',$otherContact);
+		//$this->authorize('viewEditContact',$otherContact);
 
         return view('otherContacts.edit')
             ->with('otherContact',$otherContact)

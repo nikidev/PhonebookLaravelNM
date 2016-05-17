@@ -25,7 +25,7 @@ class OtherContactPolicy
 
     public function viewContactsList(User $user, OtherContact $otherContact)
     {
-        return $user->id === $otherContact->phone_id;
+        return  $user->id === $otherContact->phone_id; 
     }
 
     public function viewEditContact(User $user, OtherContact $otherContact)

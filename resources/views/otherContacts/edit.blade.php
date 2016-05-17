@@ -12,11 +12,12 @@
 
                 <div class="col-sm-2">
                     <select name="service" class="form-control">
-                        
-                        <option value="{{ $otherContact->service_id }}">{{ $otherContact->service->name }}</option>
-                    
                         @foreach($services as $service)
-                              <option value="{{ $service->id }}">{{ $service->name }}</option>
+                            @if($otherContact->service_id == $service->id)
+                                <option style="color:blue;" selected="true"  value="{{ $otherContact->service_id }}">{{ $otherContact->service->name }}</option>
+                            @else
+                                <option value="{{ $service->id }}">{{ $service->name }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
