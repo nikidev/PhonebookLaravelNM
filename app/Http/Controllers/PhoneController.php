@@ -29,8 +29,14 @@ class PhoneController extends Controller
 		return view('phone.create');
 	}
 
-	public function phoneStore()
+	public function phoneStore(Request $request)
 	{
+		$this->validate($request,[
+				'name'  => 'required|min:3',
+				'phone' => 'required|numeric|Unique:phones',
+				'photoName' => 'image'
+			]);
+
 		$phone = Auth::user()->phone()->create([
 
 			'user_id'=> Auth::user()->id,

@@ -22,10 +22,10 @@ class OtherContactsController extends Controller
 		
 		$phone = Phone::find($id);
 
-		$otherContacts = Phone::find($id)->otherContact;
+		$otherContacts = $phone->otherContact;
 
-		//dd($phone);
-		//$this->authorize('viewContactsList',$otherContacts);
+		//$this->authorize('viewContactsList',$phone);
+		
 		return view('otherContacts.index')
 			->with(['phone_id' => $id, 'otherContacts' => $otherContacts])
 			->with('services', Service::all())

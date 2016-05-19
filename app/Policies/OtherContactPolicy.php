@@ -18,15 +18,16 @@ class OtherContactPolicy
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+    // public function __construct()
+    // {
+    //     //
+    // }
 
-    public function viewContactsList(User $user, OtherContact $otherContact)
+    /*public function viewContactsList(User $user,  Phone $phone)
     {
-        return  $user->id === $otherContact->phone_id; 
-    }
+        
+        return true;
+    }*/
 
     public function viewEditContact(User $user, OtherContact $otherContact)
     {
