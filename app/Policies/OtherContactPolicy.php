@@ -29,10 +29,10 @@ class OtherContactPolicy
         return true;
     }*/
 
-    public function viewEditContact(User $user, OtherContact $otherContact)
+    /*public function viewEditContact(User $user, OtherContact $otherContact)
     {
         return $user->id === $otherContact->phone_id;
-    }
+    }*/
 
     public function deleteContact(User $user, OtherContact $otherContact)
     {

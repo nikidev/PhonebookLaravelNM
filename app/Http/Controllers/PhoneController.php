@@ -100,8 +100,10 @@ class PhoneController extends Controller
    		return view('phone.edit', compact('phone', 'selectedGroups'));
 	}
 
-	public function phoneUpdate($id)
+	public function phoneUpdate($id,Request $request)
 	{
+
+		
 		$phone = Phone::find($id);
 		$ids = Input::get('group');
 
@@ -119,6 +121,13 @@ class PhoneController extends Controller
        }
 		
 		
+		$this->validate($request,[
+				'name'  => 'required|min:3',
+				'phone' => 'required|numeric',
+				'photoName' => 'image'
+		]);
+
+
 		$file = Input::file('photoName');
 
 		if(file_exists($file))
@@ -149,6 +158,9 @@ class PhoneController extends Controller
 				'phone'=> Input::get('phone'),
 
 			]);
+
+
+		
 
 
 				

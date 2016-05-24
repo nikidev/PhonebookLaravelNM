@@ -11,7 +11,7 @@
 
                 {{ method_field('PUT') }}
                 {!! csrf_field() !!}
-
+            <div class="form-group{{ $errors->has('photoName') ? ' has-error' : '' }}">
                 <div class="image-upload">
                             <label for="file-input" class="col-sm-3 control-label image-upload">
                             @if(isset($phone->photo->file_path))
@@ -21,23 +21,43 @@
                             @endif
                                  <span class="text-content"><span>Change photo</span></span>
                              </label>
-                         <input name="photoName" id="file-input" type="file">
-                    </div>
+                         <input name="photoName" class="form-control"  id="file-input" type="file">
 
-                <div class="form-group">
+                         @if ($errors->has('photoName'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('photoName') }}</strong>
+                                </span>
+                        @endif
+                    </div>
+            </div>
+
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     <label for="name" class="col-sm-3 control-label">Name</label>
 
                     <div class="col-sm-6">
-                        <input type="text" name="name" value="<?php echo (isset($phone->name) ? $phone->name :  ''); ?>" id="name"  class="form-control" required>
+                        <input type="text" name="name" value="<?php echo (isset($phone->name) ? $phone->name :  ''); ?>" id="name"  class="form-control">
+
+                        @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
 
                     </div>
                 </div>
 
-                 <div class="form-group">
+                 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                     <label for="phone" class="col-sm-3 control-label">Phone</label>
 
                     <div class="col-sm-6">
-                        <input type="text" name="phone" value="<?php echo (isset($phone->phone) ? $phone->phone :  ''); ?>" id="phone" class="form-control" required>
+                        <input type="text" name="phone" value="<?php echo (isset($phone->phone) ? $phone->phone :  ''); ?>" id="phone" class="form-control">
+
+                        @if ($errors->has('phone'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('phone') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
 

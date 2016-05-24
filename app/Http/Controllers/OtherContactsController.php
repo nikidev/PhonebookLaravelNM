@@ -24,7 +24,7 @@ class OtherContactsController extends Controller
 
 		$otherContacts = $phone->otherContact;
 
-		//$this->authorize('viewContactsList',$phone);
+		$this->authorize('viewContactsList',$phone);
 		
 		return view('otherContacts.index')
 			->with(['phone_id' => $id, 'otherContacts' => $otherContacts])
@@ -39,8 +39,15 @@ class OtherContactsController extends Controller
 		->with(['phone_id' => $id])->with('services', Service::all());
 	}
 
-	public function contactStore()
+	public function contactStore(Request $request)
 	{
+
+		$this->validate($request,[
+				'service'  => 'numeric',
+				'contact' => 'required|Regex:/^[A-Za-z0-9\-! ,\'\"\/@\.:\(\)]+$/',
+				
+			]);
+
 		$phone_id = Input::get('phone_id');
 		$contact = OtherContact::create([
 
@@ -66,7 +73,7 @@ class OtherContactsController extends Controller
 	{
 		$otherContact = OtherContact::find($id);
 
-		//$this->authorize('viewEditContact',$otherContact);
+		//$this->authorize('viewEditContact',$otherContact,$phone_id);
 
         return view('otherContacts.edit')
             ->with('otherContact',$otherContact)
