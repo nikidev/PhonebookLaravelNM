@@ -82,8 +82,14 @@ class OtherContactsController extends Controller
             
 	}
 
-	public function contactUpdate($id)
+	public function contactUpdate($id,Request $request)
 	{
+		$this->validate($request,[
+				'service'  => 'numeric',
+				'contact' => 'required|Regex:/^[A-Za-z0-9\-! ,\'\"\/@\.:\(\)]+$/',
+				
+		]);
+
 		$phone_id = Input::get('phone_id');
 
 		$otherContact = OtherContact::where('id',$id)->update([

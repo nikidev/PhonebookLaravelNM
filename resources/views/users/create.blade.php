@@ -6,29 +6,45 @@
 	 <form action="{{ url('user/store') }}" method="POST" class="form-horizontal">
             {!! csrf_field() !!}
 
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="name" class="col-sm-3 control-label">Name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="name" id="name" class="form-control" required>
-
+                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                    @if ($errors->has('name'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
                 </div>
             </div>
 
-             <div class="form-group">
+             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="email" class="col-sm-3 control-label">Email</label>
 
                 <div class="col-sm-6">
-                    <input type="email" name="email" id="email" class="form-control" required>
+                    <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
+
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                     @endif
                 </div>
             </div>
 
             
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <label for="password" class="col-sm-3 control-label">Password</label>
 
                 <div class="col-sm-6">
-                    <input type="password" name="password" id="password" class="form-control" required>
+                    <input type="password" name="password" id="password" class="form-control">
+
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                 </div>
             </div>
 

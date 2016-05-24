@@ -6,11 +6,16 @@
 	 <form action="{{ url('service/store') }}" method="POST" class="form-horizontal">
             {!! csrf_field() !!}
 
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="name" class="col-sm-3 control-label">Service name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="name" id="name" class="form-control" required>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                    @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                    @endif
                 </div>
             </div>
 

@@ -23,10 +23,16 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('contact') ? ' has-error' : '' }}">
                 <label for="contact" class="col-sm-3 control-label">Contact</label>
                 <div class="col-sm-6">
-                    <input type="text" name="contact" id="contact" value="{{ $otherContact->contact }}" class="form-control" required>
+                    <input type="text" name="contact" id="contact" value="{{ $otherContact->contact }}" class="form-control">
+
+                    @if ($errors->has('contact'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('contact') }}</strong>
+                            </span>
+                    @endif
                 </div>
             </div>
 
@@ -38,7 +44,7 @@
                         <i class="fa fa-edit"></i> Edit Contact
                     </button>
 
-                     <a href="{{ URL::previous() }}" class="btn btn-danger">
+                     <a href="{{ url('/contacts/' . $phone_id) }}" class="btn btn-danger">
                      	<span class="fa fa-chevron-right"></span>Back
                      </a>
                 </div>

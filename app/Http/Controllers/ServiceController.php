@@ -30,8 +30,13 @@ class ServiceController extends Controller
 		return view('services.create');
 	}
 
-	public function serviceStore()
+	public function serviceStore(Request $request)
 	{
+		$this->validate($request,[
+				'name'  => 'required|Unique:services',
+				
+			]);
+
 		$service = Service::create([
 
 			'user_id'=> Auth::user()->id,
@@ -58,8 +63,13 @@ class ServiceController extends Controller
             ->with('service',$service);
 	}
 
-	public function serviceUpdate($id)
+	public function serviceUpdate($id,Request $request)
 	{
+
+		$this->validate($request,[
+				'name'  => 'required',
+				
+			]);
 		 $service = Service::where('id',$id)->update([
                 'name'=> Input::get('name'),
             ]);

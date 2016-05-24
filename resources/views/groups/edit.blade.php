@@ -7,11 +7,17 @@
             {{ method_field('PUT') }}
             {!! csrf_field() !!}
 
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="name" class="col-sm-3 control-label">Name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="name" value="<?php echo (isset($group->name) ? $group->name :  ''); ?>" id="name"  class="form-control" required>
+                    <input type="text" name="name" value="<?php echo (isset($group->name) ? $group->name :  ''); ?>" id="name"  class="form-control">
+
+                    @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                    @endif
 
                 </div>
             </div>

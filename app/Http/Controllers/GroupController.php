@@ -29,8 +29,13 @@ class GroupController extends Controller
 		return view('groups.create');
 	}
 
-	public function groupStore()
+	public function groupStore(Request $request)
 	{
+		$this->validate($request,[
+				'name'  => 'required|Unique:groups',
+				
+			]);
+
 		$group = Auth::user()->group()->create([
 
 			'user_id'=> Auth::user()->id,
@@ -58,8 +63,13 @@ class GroupController extends Controller
             ->with('group',$group);
 	}
 
-	public function groupUpdate($id)
+	public function groupUpdate($id,Request $request)
 	{
+
+		$this->validate($request,[
+				'name'  => 'required',
+				
+			]);
 		 $group = Group::where('id',$id)->update([
                 'name'=> Input::get('name'),
             ]);

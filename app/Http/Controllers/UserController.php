@@ -58,8 +58,13 @@ class UserController extends Controller
             ->with('user',$user);
     }
 
-    public function userUpdate($id)
+    public function userUpdate($id, Request $request)
     {
+        $this->validate($request,[
+                'name'     => 'required|min:3|max:255',
+                
+            ]);
+        
         $user = User::where('id',$id)->update([
                 'name'=> Input::get('name'),
                 'isAdmin'=>Input::get('isAdmin'),
@@ -73,8 +78,15 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function userStore()
+    public function userStore(Request $request)
     {
+
+        $this->validate($request,[
+                'name'     => 'required|min:3|max:255|unique:users',
+                'email'    => 'required|email|max:255|unique:users',
+                'password' => 'required|min:6',
+            ]);
+
         $user = User::create([
 
             'name'=> Input::get('name'),
