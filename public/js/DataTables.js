@@ -5,6 +5,46 @@ $(document).ready(function(){
           { 'bSortable': false, 'aTargets': [ 0,2,3,4,5,6 ] }
        ],
 
+       dom: 'Bfrtip',
+        buttons: [
+            
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: [1,2,3]
+                }
+            },
+
+            {
+                extend: 'csv',
+                exportOptions: {
+                    columns: [1,2,3]
+                }
+            },
+
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: [1,2,3]
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [1,2,3]
+                }
+            },
+
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: [1,2,3]
+                }
+            },
+            
+        ],
+
+
        "pageLength": 4
     });
 
