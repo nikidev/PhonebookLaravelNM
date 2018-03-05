@@ -10,6 +10,6 @@ class Photo extends Model
 	
 	public function phone()
 	{
-		return $this->belongsTo('App\Phone');
+		return $this->belongsTo('App\Phone','file_path');
 	}
 }
