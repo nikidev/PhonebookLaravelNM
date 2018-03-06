@@ -100,22 +100,27 @@
 
     <!-- JavaScripts -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
-    <script type="text/javascript" src="http://mdbootstrap.com/mdbcdn/mdb.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-    <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 
-    <script src="//cdn.datatables.net/buttons/1.2.0/js/dataTables.buttons.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.2.0/js/buttons.flash.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.2.0/js/buttons.html5.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.2.0/js/buttons.print.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.2.0/js/buttons.colVis.min.js"></script>
+    {{--<script type="text/javascript" src="http://mdbootstrap.com/mdbcdn/mdb.min.js"></script>--}}
+
+    <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+
+
+
+    <script type="text/javascript" src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/buttons.flash.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jszip.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/pdfmake.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/vfs_fonts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/buttons.html5.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/buttons.print.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/buttons.colVis.min.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/DataTables.js') }}"></script>
     
