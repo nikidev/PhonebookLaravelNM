@@ -8,16 +8,17 @@
     <title>Phonebook</title>
 
     <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+
+    <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/google-fonts.css') }}" rel="stylesheet">
+
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
-    <link rel="stylesheet"  href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
-
-    <link rel="stylesheet"  href="//cdn.datatables.net/buttons/1.2.0/css/buttons.dataTables.min.css">
+    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/font-awesome4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/buttons.dataTables.min.css') }}" rel="stylesheet">
     
 
 
