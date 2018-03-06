@@ -13,7 +13,7 @@
             @endif
     
          <div style="text-align:center">
-            <h3><span class="glyphicon glyphicon-user"></span> My profile</h3>
+            <h3><span class="fa fa-user"></span> My profile</h3>
             <h6>Registered on:  {{ Auth::user()->created_at->format("d.m.Y") }}</h6>
          </div>
 

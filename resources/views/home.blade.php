@@ -58,7 +58,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ url('phone/edit/'. $phone->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>Edit
+                                    <a href="{{ url('phone/edit/'. $phone->id) }}" class="btn btn-warning"><span class="fa fa-edit"></span>Edit
                                     </a>
                                 </td>
                                 <td>
